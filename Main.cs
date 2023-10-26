@@ -10,6 +10,8 @@ public partial class Main : Node
 	
 	private void GameOver()
 	{
+		GetNode<AudioStreamPlayer>("GameOverSound").Play();
+		
 		GetNode<Timer>("MobTimer").Stop();
 		GetNode<Timer>("ScoreTimer").Stop();
 		
@@ -22,6 +24,8 @@ public partial class Main : Node
 		// we have to use the original Godot snake_case name.
 		GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
 		
+		GetNode<AudioStreamPlayer>("Music").Play();
+			
 		_score = 0;
 
 		var player = GetNode<Player>("Player");
