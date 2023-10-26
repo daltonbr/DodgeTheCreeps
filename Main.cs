@@ -18,6 +18,10 @@ public partial class Main : Node
 	
 	public void NewGame()
 	{
+		// Note that for calling Godot-provided methods with strings,
+		// we have to use the original Godot snake_case name.
+		GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
+		
 		_score = 0;
 
 		var player = GetNode<Player>("Player");
