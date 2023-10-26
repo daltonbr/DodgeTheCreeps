@@ -18,9 +18,8 @@ public partial class Player : Area2D
 		Show();
 		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 	}
-	
-//	private void OnBodyEntered(PhysicsBody2D body)
-	private void _on_body_entered(Node2D body)
+
+	private void OnBodyEntered(Node2D body)
 	{
 		Hide(); // Player disappears after being hit.
 			EmitSignal(SignalName.Hit);
